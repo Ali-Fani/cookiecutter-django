@@ -441,9 +441,9 @@ def move_directory_contents(src: PurePath, dst: PurePath):
         print(f"Moving {item} to {dst}")
         _move_single_file(temp_dir_path, dst, item)
 
-    os.removedirs(src)
 
     _move_single_file(temp_dir_path, dst, src.name)
+    os.removedirs(src)
 
 def remove_celery_compose_dirs():
     shutil.rmtree(os.path.join("compose", "local", "django", "celery"))
